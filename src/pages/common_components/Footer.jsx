@@ -69,7 +69,17 @@ const Footer = () => {
 
       {/* <!-- Copyright --> */}
       <div className="text-center p-3 d-flex align-items-center justify-content-between px-5">
-        <p className="fw-bold small">REDUX - E Commerce Shopping Cart</p>
+        <p className="fw-bold small">
+          REDUX -{" "}
+          <a
+            className="link mx-1"
+            href="https://github.com/mdazlaanzubair/Learn-Redux"
+            target="_blank"
+            title="Source Code"
+          >
+            E Commerce Shopping Cart
+          </a>
+        </p>
         <p className="fw-bold small">
           Developed with <i className="fas fa-heart text-danger"></i> |
           <a
