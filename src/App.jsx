@@ -4,6 +4,7 @@ import CartPage from "./pages/Cart/CartPage";
 import ProductsPage from "./pages/Products/ProductsPage";
 import SingleProductPage from "./pages/Products/SingleProductPage";
 import Navbar from "./pages/common_components/Navbar";
+import Footer from "./pages/common_components/Footer";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           <Route path="/products/view/:id" element={<SingleProductPage />} />
           <Route path="/cart" element={<CartPage />} />
         </Routes>
+
+        {/* COMMON COMPONENT LOADING */}
+        <Footer />
       </BrowserRouter>
     </div>
   );
