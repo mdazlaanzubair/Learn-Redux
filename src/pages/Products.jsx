@@ -36,7 +36,7 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container my-3">
       <h3 className="fw-bold text-muted">{category_title}</h3>
       <h6 className="fw-thin text-muted">{itemsCount} items found</h6>
       <hr className="hr mt-1" />

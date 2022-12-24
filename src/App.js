@@ -4,6 +4,7 @@ import React from "react";
 import Welcome from "./pages/Welcome";
 import Shop from "./pages/Shop";
 import Products from "./pages/Products";
+import Footer from "./components/common/Footer";
 
 function App() {
   return (
@@ -11,10 +12,15 @@ function App() {
       <Router>
         <Navigation />
         <Routes>
-          <Route exact path="/" element={<Welcome />}  />
+          <Route exact path="/" element={<Welcome />} />
           <Route exact path="/shop" element={<Shop />} />
-          <Route exact path="/products/:category_slug/:category_title" element={<Products />} />
+          <Route
+            exact
+            path="/products/:category_slug/:category_title"
+            element={<Products />}
+          />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

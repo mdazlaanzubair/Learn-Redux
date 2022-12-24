@@ -3,7 +3,7 @@ import React from "react";
 
 const Welcome = () => {
   return (
-    <div className="container shadow-3 rounded-3 p-5 bg-light">
+    <div className="container shadow-3 rounded-3 p-5 bg-light my-3">
       <h1 className="display-4 fw-bold">Welcome to Redux Toolkit</h1>
       <p className="lead text-muted fw-bold">
         A small scale e-commerce shopping cart project to get hands on
