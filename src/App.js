@@ -1,23 +1,20 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navigation from "./components/common/Navigation";
 import Welcome from "./pages/Welcome";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Welcome />,
-  },
-  {
-    path: "/go",
-    element: <div>Go world!</div>,
-  },
-]);
+import Shop from "./pages/Shop";
+import Products from "./pages/Products";
 
 function App() {
   return (
     <div className="App">
-      <Navigation />
-      <RouterProvider router={router} />
+      <Router>
+        <Navigation />
+        <Routes>
+          <Route exact path="/" element={<Welcome />}  />
+          <Route exact path="/shop" element={<Shop />} />
+          <Route exact path="/products/:category_slug/:category_title" element={<Products />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

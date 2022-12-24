@@ -6,16 +6,16 @@ const Navigation = () => {
     <div className="container my-5 px-0">
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-3">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             <img
               src={logo}
-              class="me-2"
+              className="me-2"
               height="50"
               alt="Redux Online Store"
               title="Redux Online Store"
               loading="lazy"
             />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -30,10 +30,10 @@ const Navigation = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link">Home</Link>
+                <Link className="nav-link" to="/">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link">Shop</Link>
+                <Link className="nav-link" to="/shop">Shop</Link>
               </li>
             </ul>
           </div>

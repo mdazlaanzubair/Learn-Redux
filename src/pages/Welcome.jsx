@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
-    <div className="container shadow-3 p-5 rounded-3 bg-light">
+    <div className="container shadow-3 rounded-3 p-5 bg-light">
       <h1 className="display-4 fw-bold">Welcome to Redux Toolkit</h1>
       <p className="lead text-muted fw-bold">
         A small scale e-commerce shopping cart project to get hands on
@@ -34,7 +34,7 @@ const Welcome = () => {
         </a>
         .
       </p>
-      <Link className="btn btn-primary">Shop Now</Link>
+      <Link className="btn btn-primary" to="/shop">Shop Now</Link>
     </div>
   );
 };
