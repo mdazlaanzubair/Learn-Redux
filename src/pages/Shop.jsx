@@ -1,5 +1,4 @@
 import ShopSegments from "../components/shop/ShopSegments";
-import React from "react";
 
 const Shop = () => {
   return (

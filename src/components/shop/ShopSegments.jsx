@@ -1,5 +1,4 @@
 import { categories_list as categories } from "./CategoryConstant";
-import React from "react";
 import Segment from "./Segment";
 
 const ShopSegments = () => {

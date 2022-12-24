@@ -5,6 +5,7 @@ import Welcome from "./pages/Welcome";
 import Shop from "./pages/Shop";
 import Products from "./pages/Products";
 import Footer from "./components/common/Footer";
+import SingleProduct from "./components/product/SingleProduct";
 
 function App() {
   return (
@@ -18,6 +19,11 @@ function App() {
             exact
             path="/products/:category_slug/:category_title"
             element={<Products />}
+          />
+          <Route
+            exact
+            path="/products/:product_id"
+            element={<SingleProduct />}
           />
         </Routes>
         <Footer />

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import React from "react";
 import axios from "axios";
 import ProductsCard from "../components/product/ProductsCard";
 import Masonry from "react-responsive-masonry";

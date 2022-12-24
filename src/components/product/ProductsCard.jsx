@@ -1,4 +1,5 @@
-import React from "react";
+import { Link } from "react-router-dom";
+
 const ProductsCard = ({ product }) => {
   return (
     <div className="card shadow-0">
@@ -31,9 +32,13 @@ const ProductsCard = ({ product }) => {
             <i className="fas fa-cart-plus me-2"></i>
             Add to Cart
           </a>
-          <a href="#!" className="btn btn-link btn-block" title="Add to cart">
+          <Link
+            to={`/products/${product.id}`}
+            className="btn btn-link btn-block"
+            title="Add to cart"
+          >
             View More
-          </a>
+          </Link>
         </div>
       </div>
     </div>
