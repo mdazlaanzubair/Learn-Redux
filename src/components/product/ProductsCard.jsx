@@ -1,3 +1,4 @@
+import React from "react";
 const ProductsCard = ({ product }) => {
   return (
     <div className="card shadow-0">
