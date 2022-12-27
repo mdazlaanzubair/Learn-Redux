@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ProductsCard from "../components/product/ProductsCard";
-import Masonry from "react-responsive-masonry";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 const Products = () => {
   const { category_slug, category_title } = useParams();
@@ -32,24 +32,22 @@ const Products = () => {
     };
 
     getProducts(products_URL);
-  }, []);
+  }, [category_slug]);
 
   return (
     <div className="container my-3">
       <h3 className="fw-bold text-muted">{category_title}</h3>
       <h6 className="fw-thin text-muted">{itemsCount} items found</h6>
       <hr className="hr mt-1" />
-      <Masonry
-        columnsCount={3}
-        gutter="25px"
-        columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+      <ResponsiveMasonry
+        columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3, 1044: 4 }}
       >
-        {/* <Masonry> */}
-        {products.map((product, index) => (
-          <ProductsCard key={index} product={product} />
-        ))}
-        {/* </Masonry> */}
-      </Masonry>
+        <Masonry columnsCount={4} gutter="25px">
+          {products.map((product, index) => (
+            <ProductsCard key={index} product={product} />
+          ))}
+        </Masonry>
+      </ResponsiveMasonry>
     </div>
   );
 };
