@@ -1,4 +1,3 @@
-
 const Footer = () => {
   const social_links = [
     {
@@ -69,7 +68,14 @@ const Footer = () => {
 
       {/* <!-- Copyright --> */}
       <div className="text-center p-3 d-flex align-items-center justify-content-between px-5">
-        <p className="fw-bold small">REDUX - Online Shop</p>
+        <p className="fw-bold small">
+          REDUX - Online Shop{" "}
+          <a
+            href="https://github.com/mdazlaanzubair/Learn-Redux"
+            target="_blank"
+          >Source Code</a>{" "}
+          
+        </p>
         <p className="fw-bold small">
           Developed with <i className="fas fa-heart text-danger me-1"></i>
           <a
