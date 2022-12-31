@@ -6,6 +6,7 @@ import Shop from "./pages/Shop";
 import Products from "./pages/Products";
 import Footer from "./components/common/Footer";
 import SingleProduct from "./components/product/SingleProduct";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -24,6 +25,11 @@ function App() {
             exact
             path="/products/:product_id"
             element={<SingleProduct />}
+          />
+          <Route
+            exact
+            path="/cart"
+            element={<Cart />}
           />
         </Routes>
         <Footer />

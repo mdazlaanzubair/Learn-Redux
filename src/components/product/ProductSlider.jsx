@@ -7,11 +7,13 @@ const ProductSlider = ({ productImgs, productTitle }) => {
     productImgs ? productImgs[0] : null
   );
 
-  //   useEffect(() => {
-  //     setFocusedImg();
-  //   }, []);
+  useEffect(() => {
+    if (productImgs) {
+      setFocusedImg(productImgs[0]);
+    }
+  }, [productImgs]);
 
-  console.log(productImgs);
+  console.log(focusedImg);
   return (
     <div className="container p-3">
       <div className="row justify-content-center mb-3">
