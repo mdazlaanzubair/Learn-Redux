@@ -1,23 +1,13 @@
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  removeFromCart,
+  decreaseQty,
+  increaseQty,
+} from "../../redux/slices/cart-slice";
 
 const QuantityForm = ({ product }) => {
-  const [qty, setQty] = useState(1);
-
-  // decrement no of products
-  const qtyDecrement = () => {
-    if (qty > 1) {
-      setQty(qty - 1);
-    }
-    console.log("decrement no of products", qty);
-  };
-
-  // increment no of products
-  const qtyIncrement = (stock) => {
-    if (qty < stock) {
-      setQty(qty + 1);
-    }
-    console.log("increment no of products", qty);
-  };
+  // initializing dispatch to mutate state using reducer
+  const dispatch = useDispatch();
 
   return (
     <div className="productQtyHandleForm">
@@ -26,23 +16,23 @@ const QuantityForm = ({ product }) => {
           <button
             type="button"
             className="btn btn-floating btn-info"
-            disabled={qty <= 1 ? "disabled" : ""}
+            disabled={product.qty <= 1 ? "disabled" : ""}
             onClick={() => {
-              qtyDecrement();
+              dispatch(decreaseQty(product.id));
             }}
           >
             <i className="fas fa-minus"></i>
           </button>
         </div>
-        <div className="flex mx-3">
+        <div className="flex mx-3 flex-grow-1">
           <input
             type="number"
             className="form-control"
             min={1}
             max={product.stock}
             placeholder="Qty"
-            value={qty}
-            onChange={(event) => setQty(event.target.value)}
+            value={product.qty}
+            onChange={(event) => (event.target.value = product.qty)}
             step="1"
           />
         </div>
@@ -50,21 +40,27 @@ const QuantityForm = ({ product }) => {
           <button
             type="button"
             className="btn btn-floating btn-primary"
-            disabled={qty === product.stock ? "disabled" : ""}
+            disabled={product.qty === product.stock ? "disabled" : ""}
             onClick={() => {
-              qtyIncrement(product.stock);
+              dispatch(increaseQty(product.id));
             }}
           >
             <i className="fas fa-plus"></i>
           </button>
         </div>
       </div>
-      <div className="d-flex my-3">
-        <div className="flex flex-grow-1">
+      <div className="d-flex my-3 justify-content-between">
+        <div className="flex">
           <button type="button" className="btn btn-secondary">
             Add to Cart
           </button>
-          <button type="button" className="btn btn-floating rounded-1 btn-danger ms-3">
+        </div>
+        <div className="flex">
+          <button
+            type="button"
+            className="btn btn-floating btn-danger ms-3"
+            onClick={() => dispatch(removeFromCart(product.id))}
+          >
             <i className="fas fa-trash"></i>
           </button>
         </div>

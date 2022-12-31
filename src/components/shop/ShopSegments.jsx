@@ -1,7 +1,11 @@
-import { categories_list as categories } from "./CategoryConstant";
+import { useSelector } from "react-redux";
+
+// custom component
 import Segment from "./Segment";
 
 const ShopSegments = () => {
+  const categories = useSelector((state) => state.category.categoryList);
+
   return categories.map((category, index) => {
     return category.slug === "neutral" ? (
       <div className="row mb-5" key={index}>

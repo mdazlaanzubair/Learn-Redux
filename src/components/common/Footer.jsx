@@ -57,6 +57,7 @@ const Footer = () => {
               title={link.title}
               className="btn btn-floating m-1 mx-3"
               target="_blank"
+              rel="noreferrer"
               role="button"
             >
               <i className={link.icon}></i>
@@ -73,8 +74,10 @@ const Footer = () => {
           <a
             href="https://github.com/mdazlaanzubair/Learn-Redux"
             target="_blank"
-          >Source Code</a>{" "}
-          
+            rel="noreferrer"
+          >
+            Source Code
+          </a>{" "}
         </p>
         <p className="fw-bold small">
           Developed with <i className="fas fa-heart text-danger me-1"></i>
@@ -82,6 +85,7 @@ const Footer = () => {
             className="link"
             href="https://github.com/mdazlaanzubair"
             target="_blank"
+            rel="noreferrer"
           >
             Muhammad Azlaan Zubair
           </a>

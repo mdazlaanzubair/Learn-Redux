@@ -1,6 +1,28 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToCart } from "../../redux/slices/cart-slice";
 
 const ProductsCard = ({ product }) => {
+  // initializing dispatching to mutate redux state
+  const dispatch = useDispatch();
+
+  // since the "products prop" is a non-extensible object therefore new_object is being
+  // created in order to avoid error this new object has two new keys for
+  // cart product object i.e. "originalPrice" & "qty"
+  const productForCart = {
+    // adding whole product object as-it-is using "spread operator (...)"
+    ...product,
+
+    // calculating original price of the product from discounted percentage and storing
+    // in the product object
+    originalPrice: Math.round(
+      product.price / (1 - product.discountPercentage / 100)
+    ),
+
+    // creating another key-value pair for product quantity
+    qty: 1,
+  };
+
   return (
     <div className="card shadow-0">
       <div className="card-header p-0 bg-light">
@@ -37,20 +59,21 @@ const ProductsCard = ({ product }) => {
           </p>
         </div>
         <div className="action-center">
-          <a
-            href="#!"
+          <button
+            type="button"
             className="btn btn-primary btn-block mb-3"
             title="Add to cart"
+            onClick={() => dispatch(addToCart(productForCart))}
           >
             <i className="fas fa-cart-plus me-2"></i>
             Add to Cart
-          </a>
+          </button>
           <Link
             to={`/products/${product.id}`}
             className="btn btn-link btn-block"
             title="Add to cart"
           >
-            View More
+            Explore
           </Link>
         </div>
       </div>

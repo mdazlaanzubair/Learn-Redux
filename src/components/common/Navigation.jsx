@@ -1,7 +1,10 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../../asset/logo/Logo.png";
 
 const Navigation = () => {
+  const cartItems = useSelector((state) => state.cart.cartProducts);
+
   return (
     <div className="container my-5 px-0">
       <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light shadow-3">
@@ -44,7 +47,9 @@ const Navigation = () => {
               <Link className="btn btn-link" to="/cart">
                 <i className="fas fa-shopping-cart me-2"></i>
                 Cart Items
-                <span className="badge bg-danger ms-2">8</span>
+                <span className="badge bg-primary ms-2">
+                  {cartItems.length}
+                </span>
               </Link>
             </ul>
           </div>

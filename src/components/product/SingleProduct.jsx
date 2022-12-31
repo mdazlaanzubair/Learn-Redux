@@ -1,40 +1,29 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import QuantityForm from "./QuantityForm";
+import { addToCart } from "../../redux/slices/cart-slice";
+
+// custom component
 import ProductSlider from "./ProductSlider";
 
 const SingleProduct = () => {
+  // initializing dispatching to mutate redux state
+  const dispatch = useDispatch();
+
+  // getting product from store
+  // getting product ID from router parameters
   const { product_id } = useParams();
-  const [product, setProduct] = useState({});
-  useEffect(() => {
-    const products_URL = `https://dummyjson.com/products/${product_id}`;
-
-    // function accepts two arguments i.e. API route and category slug
-    // in order to fetch the products of that category
-    const getProductDetails = async (url) => {
-      // since its an asynchronous call therefore using try-catch to
-      // catch the errors
-      try {
-        // fetching response/products from API
-        const response = await axios.get(url);
-
-        // returning fetched products in the state variable
-        setProduct(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getProductDetails(products_URL);
-  }, [product_id]);
+  const product = useSelector((state) => state.products);
+  console.log(product);
 
   return (
     <div className="container my-3 px-0">
       <div className="card mb-3 mx-0">
         <div className="row g-0">
           <div className="col-md-4">
-            <ProductSlider productImgs={product.images} productTitle={product.title} />
+            <ProductSlider
+              productImgs={product.images}
+              productTitle={product.title}
+            />
           </div>
           <div className="col-md">
             <div className="card-body">
@@ -58,7 +47,17 @@ const SingleProduct = () => {
                 </sup>
               </p>
               <hr className="hr" />
-              <QuantityForm product={product} />
+              <div className="d-flex my-3 justify-content-between">
+                <div className="flex">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={() => dispatch(addToCart(product))}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
